@@ -1,9 +1,12 @@
+import Header from './components/Header';
 import './index.css';
 
 function App() {
 
   return (
-    <h1>Ola mundo!</h1>
+    <>
+      <Header />
+    </>
   )
 }
 

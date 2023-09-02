@@ -1,0 +1,21 @@
+header {
+    display: flex;
+    height: 70px;
+    background-color: var(--dsf-color-green);
+    color: var(--dsf-color-white);
+}
+
+.dsf-header-content {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.dsf-header-content h1 {
+    font-size: 20px;
+}
+
+.dsf-header-content p {
+    font-weight: 700;
+    font-size: 12px;
+}

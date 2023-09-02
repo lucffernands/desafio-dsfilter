@@ -1,7 +1,9 @@
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;700&family=Roboto:wght@400;700&display=swap');
 
 :root {
-  
+  --dsf-color-grey: #6F6F6F;
+  --dsf-color-white: #FFFFFF;
+  --dsf-color-green: #55BC04;
 }
 
 * {
@@ -11,4 +13,8 @@
   font-family: "Roboto";
 }
 
-
+.dsf-container {
+  width: 100%;
+  max-width: 960px;
+  margin: 0 auto;
+}
