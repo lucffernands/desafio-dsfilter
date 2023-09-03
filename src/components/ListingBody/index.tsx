@@ -1,7 +1,8 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import Cardfilter from "./CardFilter";
 import CardListing from "./CardListing";
 import { ProductDTO } from "../../models/product";
+import * as productService from "../../models/product-service";
 
 type QueryParams = {
     valueMin: number;
@@ -19,6 +20,13 @@ export default function ListingBody() {
     });
 
     const [products, setProducts] = useState<ProductDTO[]>([]);
+    const [contextListCount, setcontextListCount] = useState<number>(0);
+
+    useEffect(() => {
+        const newFilter = productService.findByPrice(queryParams.valueMin, queryParams.valueMax);
+        setProducts(newFilter);
+        setcontextListCount(newFilter.length);
+    }, [queryParams]);
 
     function handleFilter(min: number, max: number) {
         const newMin = min;
