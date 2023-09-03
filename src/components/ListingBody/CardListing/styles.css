@@ -1,0 +1,17 @@
+.dsf-product-details {
+    border-radius: 5px;
+    border: 1px solid var(--dsf-color-green);
+    padding: 10px;
+    margin-bottom: 10px;
+}
+
+.dsf-product-details p {
+    color: var(--dsf-color-grey-dark);
+    font-size: 12px;
+}
+
+.dsf-product-details h3 {
+    color: var(--dsf-color-green);
+    font-size: 16px;
+    font-weight: 700;
+}

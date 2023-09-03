@@ -24,3 +24,19 @@ body {
   max-width: 960px;
   margin: 0 auto;
 }
+
+.dsf-card-container {
+  background-color: var(--dsf-color-white);
+  margin: 20px 0 10px 0;
+  padding: 20px;
+  padding-bottom: 10px;
+  border-radius: 5px;
+}
+
+.dsf-mt20 {
+  margin-top: 20px;
+}
+
+.dsf-placeholder ::placeholder {
+  color: var(--dsf-color-grey);
+}
