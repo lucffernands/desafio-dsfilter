@@ -3,6 +3,8 @@ import Cardfilter from "./CardFilter";
 import CardListing from "./CardListing";
 import { ProductDTO } from "../../models/product";
 import * as productService from "../../models/product-service";
+import { ContextListCount } from "../../utils/context-listing";
+import Header from "../Header";
 
 type QueryParams = {
     valueMin: number;
@@ -20,12 +22,13 @@ export default function ListingBody() {
     });
 
     const [products, setProducts] = useState<ProductDTO[]>([]);
-    const [contextListCount, setcontextListCount] = useState<number>(0);
+
+    const [contextListCount, setContextListCount] = useState<number>(0);
 
     useEffect(() => {
         const newFilter = productService.findByPrice(queryParams.valueMin, queryParams.valueMax);
         setProducts(newFilter);
-        setcontextListCount(newFilter.length);
+        setContextListCount(newFilter.length);
     }, [queryParams]);
 
     function handleFilter(min: number, max: number) {
@@ -35,15 +38,21 @@ export default function ListingBody() {
     }
 
     return (
-        <main>
-            <div className="dsf-container">
-                <Cardfilter onFilter={handleFilter} />
-            </div>
-            <div className="dsf-container">
-                {
-                    products.map(product => <CardListing key={product.id} product={product} />)
-                }
-            </div>
-        </main>
+        <>
+            <ContextListCount.Provider value={{ contextListCount, setContextListCount }} >
+                <Header />
+                <main>
+                    <div className="dsf-container">
+                        <Cardfilter onFilter={handleFilter} />
+                    </div>
+                    <div className="dsf-container">
+                        {
+                            products.map(product => <CardListing key={product.id} product={product} />)
+                        }
+                    </div>
+                </main>
+            </ContextListCount.Provider>
+        </>
+
     );
 }
